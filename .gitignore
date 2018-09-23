@@ -1,3 +1,4 @@
+#misc
 .env
 jsonDump.json
 sqldump.sql
@@ -6,3 +7,7 @@ whatever.html
 rmthing.txt
 royal_mail_script.py
 getPHPStuff.php
+
+
+# dependencies
+/node_modules
