@@ -1,0 +1,18 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "easypost node files",
+  "main": "addShipmentsToBatch.js",
+  "dependencies": {
+    "@easypost/api": "^3.6.4",
+    "babel-polyfill": "^6.26.0",
+    "dotenv": "^6.0.0",
+    "easypost": "^0.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Logan Simonsen",
+  "license": "ISC"
+}
