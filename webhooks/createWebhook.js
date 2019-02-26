@@ -6,9 +6,10 @@ const {
 } = process.env;
 const Easypost = require('@easypost/api');
 const api = new Easypost(process.env.testkey);
+// const api = new Easypost(process.env.prodkey);
 
 const webhook = new api.Webhook({
-    url: 'https://webhook.site/8e28b634-6ce8-44c9-b925-216995b31b95'
+    url: 'https://webhook.site/e3148d28-9299-48ec-a552-8c5f70ca4052'
 });
 
 webhook.save().then(console.log);

@@ -1,0 +1,7 @@
+curl -X POST https://api.easypost.com/v2/shipments/shp_bd14221c733b400684c0403bb74dcb18/forms \
+  -u --API Key--: \
+  -d 'form[type]=return_packing_slip' \
+  -d 'form[barcode]=RMA12345678900' \
+  -d 'form[line_items][0][product][title]=t-shirt' \
+  -d 'form[line_items][0][product][barcode]=888888003251' \
+  -d 'form[line_items][0][units]=4'

@@ -10,7 +10,7 @@ const apiKey = process.env.testkey;
 const EasyPost = require('@easypost/api');
 
 const api = new EasyPost(apiKey);
-const options = require('./options');
+const options = require('../options');
 
 // set addresses
 // const toAddress = new api.Address({
@@ -31,14 +31,14 @@ const options = require('./options');
 //   zip: '94105',
 // });
 
-const fromAddress = new api.Address({
+const toAddress = new api.Address({
     // name: 'EasyPost',
     // street1: '118 2nd Street',
     // street2: '4th Floor',
     // city: 'San Francisco',
     // state: 'CA',
     // zip: '94105',
-    // phone: '415-123-4567'
+    phone: '415-123-4567',
     name: "Mark Mark",
     street1: "1018 72nd Ave NE",
     city: "Calgary",
@@ -47,7 +47,7 @@ const fromAddress = new api.Address({
     country: "CA",
 });
 
-const toAddress = new api.Address({
+const fromAddress = new api.Address({
     // name: 'EasyPost',
     // street1: '13271 Ventura Blvd',
     // city: 'Studio City',
@@ -60,7 +60,7 @@ const toAddress = new api.Address({
     state: "CA",
     zip: "94080",
     country: "US",
-    // phone: '415-123-4567',
+    phone: '415-123-4567',
 }
 )
 
@@ -69,25 +69,34 @@ fromAddress.save();
 toAddress.save();
 
 const customsInfo = new api.CustomsInfo({
-    eel_pfc: null,
+    // eel_pfc: null,
     // customs_certify: true,
     // customs_signer: 'Steve Brule',
-    // contents_type: 'merchandise',
-    // contents_explanation: '',
-    // restriction_type: 'none',
-    // restriction_comments: '',
-    // non_delivery_option: 'abandon',
-    // contents_explanation: 'this is a box full of shredded news paper',
-    // declaration: 'officially speaking, this box is filled with shredded news paper',
-    // customs_items: [
-    //     new api.CustomsItem({
-    //         'description': 'Sweet shirts',
-    //         'quantity': 2,
-    //         'weight': 11,
-    //         'value': 23,
-    //         'hs_tariff_number': '654321',
-    //         'origin_country': 'US',
-    //     })],
+    contents_type: 'merchandise',
+    contents_explanation: '',
+    restriction_type: 'none',
+    restriction_comments: '',
+    non_delivery_option: 'abandon',
+    contents_explanation: 'this is a box full of shredded news paper',
+    declaration: 'officially speaking, this box is filled with shredded news paper',
+    customs_items: [
+        new api.CustomsItem({
+            'description': 'Sweet shirts',
+            'quantity': 2,
+            'weight': 11,
+            'value': 23,
+            'hs_tariff_number': '654321',
+            'origin_country': 'US',
+        }),
+        new api.CustomsItem({
+            'description': 'Sweet shirts',
+            'quantity': 2,
+            'weight': 11,
+            'value': 23,
+            'hs_tariff_number': '654321',
+            'origin_country': 'US',
+        }),
+    ],
 });
 
 const parcel = new api.Parcel({
@@ -106,21 +115,22 @@ const shipment = new api.Shipment({
     from_address: fromAddress,
     parcel: parcel,
     customs_info: customsInfo,
-    // options: {
-    //     print_custom_1: "#customTEXT"
-    // },
-    carrier_accounts: ['ca_ca1e89855bef47b6a613185112b5a18e']
+    options: {
+        // suppress_etd: "true",
+
+    },
+    carrier_accounts: ['ca_c895919c23164f9eb125173714c2ba69']
 
 })
 
-shipment.save().then(console.log).catch(console.log);
+// shipment.save().then(console.log).catch(console.log);
 
 
-//============buy shipment by lowest rate============
-// shipment.save().then(buyShipment => {
-//     shipment.buy(shipment.lowestRate())
-//         .then(console.log);
-// }).catch(console.log);
+// ============buy shipment by lowest rate============
+shipment.save().then(buyShipment => {
+    shipment.buy(shipment.lowestRate())
+        .then(console.log);
+}).catch(console.log);
 
 // ============buy shipment by ID============
 // api.Shipment.retrieve('shp_abaf35c0a3624505b4bc51e4eb9f3d5a').then(s => {

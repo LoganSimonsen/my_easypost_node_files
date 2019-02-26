@@ -1,0 +1,18 @@
+
+==========create=========
+curl -X POST https://api.easypost.com/v2/shipments \
+  -u ----------apikey------: \
+  -d 'shipment[to_address][id]=adr_705617069a9a4f6d8ccc5b44bdf3c7c1' \
+  -d 'shipment[from_address][id]=adr_4ba9ca8bb909449b804e0af1bf75435f' \
+  -d 'shipment[parcel][id]=prcl_c1c4023fa2a74e98b44dcf6cf53c54d0' \
+  -d 'shipment[customs_info][id]=cstinfo_99daa4e1917c459d91c7e4a5c35918a1'\
+  -d 'shipment[print_custom_by_name][INST]=test1234test' \
+  -d 'shipment[carrier_accounts][0]=ca_025ccf9ca68e46fda5872076351fd297' \
+  
+
+
+  ==========buy=========
+curl -X POST https://api.easypost.com/v2/shipments/shp_845ac9a90f1d4fb0baec0b6472006c0b/buy \
+  -u CY19C7DCiRGXYRaB3o3rbg: \
+  -d 'rate[id]=rate_42b99cc9d1b9463fb7eb3d7e01634913' \
+

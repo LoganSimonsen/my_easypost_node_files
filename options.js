@@ -15,5 +15,3 @@ module.exports.options = [{
     // delivery_confirmation: "NO_SIGNATURE",
     // dropoff_type: "REGULAR_PICKUP"
 }]
-
-// REFERENCE https://www.easypost.com/docs/api.html#options

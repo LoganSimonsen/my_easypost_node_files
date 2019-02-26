@@ -1,6 +1,10 @@
-// import "babel-polyfill";
-//test API key
-const apiKey = 'YWlCilzRkxG0vj1lctHBWw';
+require('dotenv').config()
+require('babel-polyfill');
+const {
+    testkey,
+    prodkey
+} = process.env;
+const apiKey = proces.env.testkey;
 require('@easypost/api/easypost.8-lts.js');
 
 const EasyPost = require('@easypost/api');
