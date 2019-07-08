@@ -12,6 +12,35 @@ const api = new Easypost(process.env.testkey);
  * created. */
 // set addresses
 
+const from_address = {
+    "name": "ASTRID REINOSO",
+    "company": "JUAN DE DIOS SWIMWEAR",
+    "street1": "CALLE 7 OESTE # 35-25",
+    "street2": null,
+    "city": "CALI",
+    "state": "VALLE DEL CAUCA",
+    "zip": "760043",
+    "country": "CO",
+    "phone": "573206736538",
+    "email": "sales@juandediosswimwear.com",
+}
+
+const to_address = {
+    "object": "Address",
+    "created_at": "2019-06-11T12:12:07Z",
+    "updated_at": "2019-06-11T12:12:07Z",
+    "name": "MARIA CAMILA SILVA",
+    "company": null,
+    "street1": "CARRERA 19 A # 86 A -21",
+    "street2": "APTO 202",
+    "city": "BOGOTA",
+    "state": "CUN",
+    "zip": null,
+    "country": "CO",
+    "phone": "3174301212",
+    "email": null,
+}
+
 const shipmentTester = new api.Shipment({
     parcel: {
         length: 19.0,
@@ -44,9 +73,9 @@ const fromAddress = new api.Address({
 });
 
 const order = new api.Order({
-    to_address: process.env.adr1_US,
-    from_address: process.env.adr2_US,
-    carrier_accounts: ['ca_c895919c23164f9eb125173714c2ba69'],
+    to_address: to_address,
+    from_address: from_address,
+    carrier_accounts: ['ca_ca1e89855bef47b6a613185112b5a18e'],
     // customs_info: {
     //     contents_type: 'merchandise',
     //     contents_explanation: '',
@@ -76,23 +105,25 @@ const order = new api.Order({
     // },
     shipments: [
         new api.Shipment({
+            // insurance: "190",
             parcel: {
-                length: 19.0,
-                width: 12.3,
-                height: 6.5,
-                // predefined_package: "Card",
-                weight: 170,
+                // length: 19.0,
+                // width: 12.3,
+                // height: 6.5,
+                predefined_package: "JumboBox",
+                weight: 158.7,
             },
         }),
         new api.Shipment({
+            // insurance: "190",
             parcel: {
-                length: 19.0,
-                width: 12.3,
-                height: 6.5,
-                // predefined_package: "Card",
-                weight: 170,
+                // length: 19.0,
+                // width: 12.3,
+                // height: 6.5,
+                predefined_package: "JumboBox",
+                weight: 158.7,
             },
-        }), shipmentTester,
+        }),
     ]
 });
 

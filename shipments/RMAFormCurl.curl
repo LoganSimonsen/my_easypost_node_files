@@ -1,7 +1,21 @@
-curl -X POST https://api.easypost.com/v2/shipments/shp_bd14221c733b400684c0403bb74dcb18/forms \
-  -u --API Key--: \
+curl -X POST https://api.easypost.com/v2/shipments/shp_58767066571747daa5906cde06754223/forms \
+  -u YWlCilzRkxG0vj1lctHBWw: \
   -d 'form[type]=return_packing_slip' \
   -d 'form[barcode]=RMA12345678900' \
   -d 'form[line_items][0][product][title]=t-shirt' \
   -d 'form[line_items][0][product][barcode]=888888003251' \
   -d 'form[line_items][0][units]=4'
+
+
+
+  curl -X POST https://api.easypost.com/v2/batches/batch_1da4f5ca5df942daa54c818bc5986793/add_shipments \
+-u EZAK96a914cb06d240758d716786ed613e50zubm8xs7cn6QoRiqKHrQ3g: \
+-d 'shipments[0][id]=shp_249de10ec1cb48caa979bc308b345c4c'
+
+
+curl -X POST https://api.easypost.com/v2/shipments \
+  -u redacted: \
+  -d 'shipment[to_address][id]=adr_5d67863d207f4b73a937adeac60201ad' \
+  -d 'shipment[from_address][id]=adr_bb455bda318c45b4ba1e6c290401a927' \
+  -d 'shipment[parcel][id]=prcl_5f0cc973358b42e882b8aafc7b90f7db' \
+  -d 'shipment[options][print_custom_1]=hello'

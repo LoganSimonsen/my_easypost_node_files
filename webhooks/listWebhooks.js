@@ -5,6 +5,6 @@ const {
     prodkey
 } = process.env;
 const Easypost = require('@easypost/api');
-const api = new Easypost(process.env.prodkey);
+const api = new Easypost(process.env.testkey);
 
 api.Webhook.all().then(console.log);

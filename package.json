@@ -5,6 +5,7 @@
   "main": "addShipmentsToBatch.js",
   "dependencies": {
     "@easypost/api": "^3.6.4",
+    "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
     "dotenv": "^6.0.0",
     "easypost": "^0.1.1"

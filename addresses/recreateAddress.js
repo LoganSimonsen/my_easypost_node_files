@@ -11,31 +11,28 @@ const options = require('../options');
 // const to_address = require('../addresses/defaultToAddress')
 
 // set addresses
-const addy = {
-    "object": "Address",
-    "created_at": "2019-06-07T13:33:43Z",
-    "updated_at": "2019-06-07T13:33:43Z",
-    "name": "Ruben Espinoza 3",
-    "company": null,
-    "street1": "1403 Atlantic Avenue",
-    "street2": null,
-    "city": "brooklyn",
-    "state": "NY",
-    "zip": "11216",
-    "country": "US",
-    "verify": ["delivery"]
-}
-
-const toAddress = new api.Address(
-    addy
-);
 
 // "to_address":{"name":"Antonio Sustiel","street1":"5950 Anglers Ave","street2":"","city":"Fort Lauderdale","state":"FL","zip":"33312","company":"Flooring King - Home Of The 100% Waterproof Flooring","phone":"(954) 253-7095"
-
-// const toAddress = to_address;
 // console.log(process.env.adr1_US, process.env.adr2_US);
+const address = new api.Address(
+    {
+        "city": "NEW YORK",
+        "company": "Other",
+        "country": "US",
+        "email": "wu.mengju@gmail.com",
+        "name": "Mengju Wu",
+        "phone": "8584129311",
+        "state": "NY",
+        "street1": "416 W 25th St. Apt 5FE",
+        "street2": "",
+        "verify": [
+            "delivery"
+        ],
+        "zip": "10005"
+    }
+)
 
-toAddress.save().then(response => console.log(response)).catch(console.log); //doing JSON.stringify here to capture the entire json reponse body
+address.save().then(response => console.log(response)).catch(console.log); //doing JSON.stringify here to capture the entire json reponse body
 // adr_6a780466a79f4fedb1ad1fa07293dc6d to address
 //adr_3103ce5d7e9b4e6ab63c87e792ef000c from address
 
@@ -60,3 +57,6 @@ toAddress.save().then(response => console.log(response)).catch(console.log); //d
 // adr19_LR = adr_d34f1346bb504fafa0d52e6cdaf59e72 # Monrovia, LR
 // adr20_US = adr_f27cb7fe33484425979408ed92eaf520 # APO, AP (military)
 // adr21_DE = adr_ef2a6f25a28b48ad867740d669fc2b86 # Berlin, DE
+
+
+

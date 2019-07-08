@@ -1,9 +1,6 @@
 require('dotenv').config()
 require('babel-polyfill');
-const {
-    testkey,
-    prodkey
-} = process.env;
+
 require('@easypost/api/easypost.8-lts.js');
 
 const apiKey = process.env.testkey;

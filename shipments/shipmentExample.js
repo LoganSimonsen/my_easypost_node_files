@@ -70,7 +70,7 @@ const shipment = new api.Shipment({
   to_address: toAddress,
   from_address: fromAddress,
   parcel: parcel,
-  carrier_accounts: ['ca_c895919c23164f9eb125173714c2ba69'],
+  carrier_accounts: ['ca_44f8a78f150f4844aa269bd4741e299e'],
   options: {
     print_custom_2_code: 'PO',
     label_format: 'PNG',
@@ -109,3 +109,4 @@ shipment.save().then(console.log).catch(console.log);
 // https://easypost-admin.easypo.net/easy_post~shipment/717194377 - no ground rate returned with saturday delivery true
 // https://easypost-admin.easypo.net/easy_post~shipment/717195375 - ground rate shows delivery for monday when label date is on a friday
 
+// fax forms to 855-892-7588

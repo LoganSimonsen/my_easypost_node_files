@@ -17,54 +17,33 @@ const apiKey = process.env.testkey; //test!
 const api = new EasyPost(apiKey);
 
 const parcel = new api.Parcel({
-  length: 5,
-  width: 8,
-  height: 3,
-  // predefined_package: "CARTON",
-  weight: 5,
+  length: 3,
+  width: 7,
+  height: 1,
+  // predefined_package: "letter",
+  weight: 1,
 })
 
-const toAddress = new api.Address({
-  // company: 'TEST',
-  // street1: '4728 Lexi Loop',
-  // // street2: '4th Floor',
-  // city: 'Eagle MOUNTAIN',
-  // country: 'US',
-  // state: 'UT',
-  // zip: '84005',
-  // // verify: 'delivery'
-  // phone: "469-123-4567",
-  // // residential: true
-  name: '(test)',
-  name: 'Name Line (test',
-  street1: '263 West 38th St 14th Floor',
-  street2: '',
-  city: 'New York',
-  state: 'NY',
-  zip: '10018',
-  country: 'US',
-  phone: '212-278-0700',
-});
+// const toAddress = new api.Address({
+//   "name": "Danielle Kane",
+//   "street1": "1005 - 100 Western Battery Rd",
+//   "street2": "",
+//   "city": "Los Angeles",
+//   "state": "CA",
+//   "zip": "90058 3S2",
+//   // "phone": "90058",
+//   "country": "US"
+// })
 
 const fromAddress = new api.Address({
-  // company: 'VANDEN BULCKE',
-  // street1: '35/F, FLAT D, TOWER 6, THE WATERFRONT',
-  // street2: '1 AUSTIN ROAD WEST, TSIM SHA TSUI, KOWLOON',
-  // city: 'HONG KONG',
-  // // state: 'CA',
-  // country: 'HK',
-  // zip: '0000',
-  // // email: 'logan.simonsen@easypost.com',
-  // phone: "469-123-4567"
-  company: 'Company Line (test)',
-  name: 'Name Line (test)',
-  street1: '263 West 38th St 14th Floor',
-  street2: '',
-  city: 'New York',
-  state: 'NY',
-  zip: '10018',
-  country: 'US',
-  phone: '212-278-0700',
+  "name": "test",
+  "company": "test",
+  "street1": "4491 Concession Rd 12",
+  "city": "Toronto",
+  "state": "ON",
+  "country": "CA",
+  "zip": "M5G 1X5",
+  "phone": "1-888-123-3214"
 });
 
 const customsInfo = new api.CustomsInfo({
@@ -76,8 +55,8 @@ const customsInfo = new api.CustomsInfo({
   restriction_type: 'none',
   restriction_comments: '',
   non_delivery_option: 'abandon',
-  contents_explanation: 'this is a box full of shredded news paper',
-  declaration: 'officially speaking, this box is filled with shredded news paper',
+  contents_explanation: 'this is a box',
+  declaration: 'this box is filled with shredded news paper',
   customs_items: [
     new api.CustomsItem({
       'description': 'Sweet shirts',
@@ -86,44 +65,67 @@ const customsInfo = new api.CustomsInfo({
       'value': 1,
       'hs_tariff_number': '654321',
       'origin_country': 'US',
+      'code': "12"
     })],
 });
 
 // adr_6a780466a79f4fedb1ad1fa07293dc6d to address
 //adr_3103ce5d7e9b4e6ab63c87e792ef000c from address
 const shipment = new api.Shipment({
-  // reference: "myTestReference",
-  to_address: process.env.adr1_US,
-  from_address: process.env.adr2_US,
-  // reference: "testReference 12345",
+  to_address: process.env.adr4_US,
+  from_address: process.env.adr3_US,
+  reference: "test 12345",
   parcel: parcel,
-  carrier_accounts: ["ca_a5c1dd47e2b145ad881050b01cba7c80"],
+  carrier_accounts: [process.env.USPS],
   // customs_info: customsInfo,
   // is_return: true,
   // print_custom_by_name: { "INST": "123488686test" },
+  // reference: "testReference",
   options: {
+    // "bill_third_party_account": "755880442",
+    // "bill_third_party_postal_code": "72712",
+    // "bill_third_party_country": "US",
     //====required for CDL=======
-    // pickup_min_datetime: '2019-02-18T07:00:00.000Z',
-    // pickup_max_datetime: '2019-02-22T07:00:00.000Z',
-    // delivery_min_datetime: '2019-02-18T07:00:00.000Z',
-    // delivery_max_datetime: '2019-02-22T07:00:00.000Z',
-    // print_custom_1_code: "PO",
-    // print_custom_2_code: "RMA",
-    // print_custom_1_barcode: true,
-    // print_custom_1: "printCustom1",
-    // print_custom_2: "printCustom2",
-    // invoice_number: "INVOICE12345",
-    // print_custom_3: "printCustom3",
-    // delivery_confirmation: 'SIGNATURE',
+    // pickup_min_datetime: '2019-04-25T07:00:00.000Z',
+    // pickup_max_datetime: '2019-04-26T07:00:00.000Z',
+    // delivery_min_datetime: '2019-04-28T07:00:00.000Z',
+    // delivery_max_datetime: '2019-04-29T07:00:00.000Z',
+    //===========================
+    // print_custom: [
+    //   {
+    //     name: "barcode_title",
+    //     value: "title"
+    //   },
+    //   {
+    //     name: "barcode",
+    //     value: "123456"
+    //   },
+    //   {
+    //     name: "barcode_symbology",
+    //     value: "CODE128B"
+    //   }
+    // ],
+    // label_format: 'PNG',
+    // label_size: '4x6',
+    // machinable: true,
+    print_custom_1: "printCustom1",
+    print_custom_2: "printCustom2",
+    // carrier_insurance_amount: "100",
+    // print_custom_2_code: "PO",
+    invoice_number: "INVOICE12345",
+    print_custom_3: "printCustom3",
+    // print_custom_3_code: "RMA",
+    // HOLD_FOR_PICKUP: true,
     // label_size: 'EnvelopeSize10',
     //   ups_return_service: "electronic",
     // carrier_branded: true,
-    //   bill_third_party_account: "F12345"
+    // bill_third_party_account: "673324983",
     // "alcohol": "1",
     // "print_custom_2_code": "PO",
-    // label_format: "PDF",
+    // label_format: "PNG",
+    // postage_label_inline: true,
     // label_date: '2018-12-19',
-    label_size: "4x6",
+    // label_size: "4x6",
     // "receiver_liquor_license": "false",
     // "label_date": "2018-09-17T00:00:00.000-0500",
     // "delivery_confirmation": "ADULT_SIGNATURE",
@@ -137,6 +139,8 @@ const shipment = new api.Shipment({
     // label_date: '2018-11-02'
   }
 })
+
+//======= Create shipment but don't buy ========
 // shipment.save().then(console.log).catch(console.log);
 
 // shipment.save().then(s => {console.log(s.messages)});
@@ -150,15 +154,13 @@ shipment.save().then(buyShipment => {
 
 //============buy shipment by Service============
 // shipment.save().then(buyShipment => {
-//   shipment.buy("FEDEX", "FEDEX_GROUND")
+//   shipment.buy("USPS", "Priority")
 //     .then(console.log).catch(console.log);
 // }).catch(console.log);
 
 // api.Shipment.retrieve('shp_5b13b49877954ac39e5820d9c99b6237').then(s => {
 //   s.buy('rate_07830629ad60425795c044f7466c0af4').then(console.log);
 // });
-
-
 
 //============Environmental Variable Addresses ==================
 // adr1_US = adr_4ba9ca8bb909449b804e0af1bf75435f # San Francisco, CA
@@ -182,3 +184,7 @@ shipment.save().then(buyShipment => {
 // adr19_LR = adr_d34f1346bb504fafa0d52e6cdaf59e72 # Monrovia, LR
 // adr20_US = adr_f27cb7fe33484425979408ed92eaf520 # APO, AP (military)
 // adr21_DE = adr_ef2a6f25a28b48ad867740d669fc2b86 # Berlin, DE
+
+
+// shp_ceb3535c0b2b445d9e04ba13e5feb699, shp_1a1972a9dc7a4223888563355dd1cd38, shp_97c0ccc3316c4c6787ca5e8032004ba2
+// shp_789d46bb3ea94c388417c85eb1211724, shp_81b9c2c760384905b1961092fc2e8bc4, shp_d7b267749d35426a86610734062aa3a0

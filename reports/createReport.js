@@ -6,8 +6,8 @@ const api = new Easypost(process.env.prodkey);
 // first argument is the report type
 const report = new api.Report({
     type: 'shipment',
-    start_date: '2019-02-02',
-    end_date: '2019-02-22'
+    start_date: '2019-01-01',
+    end_date: '2019-01-31'
 })
 
 report.save().then(console.log)

@@ -1,0 +1,5 @@
+// Zebra_Technologies_ZTC_ZP_450_200dpi
+
+lpr -P Zebra_Technologies_ZTC_ZP_450_200dpi -o raw /Users/logan.simonsen\ 1/Downloads/6569f31df68d4758b8db92971db9a1fd.zpl
+
+

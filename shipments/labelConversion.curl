@@ -1,0 +1,3 @@
+curl -X GET https://api.easypost.com/v2/shipments/shp_557214ed744b466b888cc04427984f99/label \
+  -u YWlCilzRkxG0vj1lctHBWw: \
+  -d 'file_format=ZPL'

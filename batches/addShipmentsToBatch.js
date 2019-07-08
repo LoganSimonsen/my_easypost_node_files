@@ -1,12 +1,12 @@
 require('dotenv').config()
 require('babel-polyfill');
-const {
-    testkey,
-    prodkey
-} = process.env;
-const Easypost = require('@easypost/api');
-const api = process.env.testkey;
+
+const EasyPost = require('@easypost/api');
+const apiKey = process.env.testkey;
+
 require('@easypost/api/easypost.8-lts.js');
+
+const api = new EasyPost(apiKey);
 
 const batch = api.Batch.retrieve('batch_b5d2823d7ab748cf95341ef29a884416');
 
