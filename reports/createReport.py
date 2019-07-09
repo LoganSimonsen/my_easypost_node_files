@@ -1,5 +1,5 @@
 import easypost
-easypost.api_key = "CY19C7DCiRGXYRaB3o3rbg"
+easypost.api_key =
 
 # payment_log_report = easypost.Report.create(
 #   start_date="2016-10-01",
@@ -26,4 +26,4 @@ report = easypost.Report.create(
 # )
 # shipment_report = easypost.Report.retrieve(report.id)
 
-print [report]
+print[report]
