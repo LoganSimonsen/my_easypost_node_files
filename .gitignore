@@ -1,5 +1,10 @@
 #misc
 .env
+.xml
+.txt
+.php
+.html
+.curl
 jsonDump.json
 sqldump.sql
 table.html
@@ -7,13 +12,6 @@ whatever.html
 rmthing.txt
 royal_mail_script.py
 getPHPStuff.php
-.curl
-whatever
-.xml
-.txt
-.php
-.html
-
 
 #dependencies
 /node_modules
