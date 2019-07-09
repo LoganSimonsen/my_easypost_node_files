@@ -18,7 +18,7 @@ const shipment = new api.Shipment({
   from_address: ship.from_address,
   parcel: ship.parcel,
   // customs_info: ship.customs_info,
-  carrier_accounts: ["ca_4a5b3758de3544c0b942403d0f4d4732"],
+  carrier_accounts: [process.env.USPS],
   options: ship.options
 })
 
